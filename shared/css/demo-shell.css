@@ -1,0 +1,109 @@
+/* Demo role bar + admin visibility */
+.demo-role-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  display: flex;
+  height: 40px;
+  background: #0b1f33;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.demo-role-bar__btn {
+  flex: 1 1 50%;
+  height: 40px;
+  margin: 0;
+  padding: 0 12px;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font: 600 13px/40px Manrope, system-ui, sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.demo-role-bar__btn:last-child { border-right: 0; }
+.demo-role-bar__btn.is-active {
+  background: #1db8a6;
+  color: #fff;
+}
+.demo-site-wrap { padding-top: 40px; min-height: 100vh; }
+
+html:not(.is-demo-admin) [data-demo-admin] { display: none !important; }
+html:not(.is-demo-admin) .ai-ve-fab,
+html:not(.is-demo-admin) .ai-ve-panel,
+html:not(.is-demo-admin) .ai-ve-modal,
+html:not(.is-demo-admin) .ai-ve-block-tools,
+html:not(.is-demo-admin) .ai-block-toolbar { display: none !important; }
+
+html:not(.is-demo-admin) .ai-catalog-header__actions,
+html:not(.is-demo-admin) .ai-catalog-admin-panel,
+html:not(.is-demo-admin) .ai-api-status,
+html:not(.is-demo-admin) .ai-encar-api-pager,
+html:not(.is-demo-admin) .ai-car-card__admin-actions,
+html:not(.is-demo-admin) .ai-car-card__edit,
+html:not(.is-demo-admin) .ai-car-card__hide,
+html:not(.is-demo-admin) #ai-car-edit-modal { display: none !important; pointer-events: none !important; }
+
+html:not(.is-demo-admin) .ai-ve-fab,
+html:not(.is-demo-admin) .ai-ve-panel,
+html:not(.is-demo-admin) .ai-ve-modal,
+html:not(.is-demo-admin) .ai-ve-backdrop,
+html:not(.is-demo-admin) .ai-block-toolbar { pointer-events: none !important; }
+
+html.is-demo-admin [data-ai-ve-block] {
+  outline: 1px dashed rgba(29, 184, 166, 0.45);
+  outline-offset: 4px;
+  position: relative;
+}
+html.is-demo-admin .ai-ve-block-tools {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  display: flex;
+  gap: 6px;
+}
+.ai-ve-block-tools .ai-btn { pointer-events: auto; }
+
+.demo-package-badge {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  z-index: 9990;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(11, 31, 51, 0.88);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+[data-feature-hidden="true"] { display: none !important; }
+
+.demo-toast {
+  position: fixed;
+  bottom: 56px;
+  right: 16px;
+  z-index: 100001;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #0b1f33;
+  color: #fff;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.demo-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ai-ve-fab { z-index: 9995; }

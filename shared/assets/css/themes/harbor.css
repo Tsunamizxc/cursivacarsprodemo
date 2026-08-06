@@ -1,0 +1,332 @@
+/**
+ * Harbor ? visual match for https://jplife.ru/ (Japan Life)
+ * IBM Plex Sans, teal-navy #13303C, Japan red #FF0025, catalog-first
+ */
+body.ai-design-harbor {
+  --ai-font: "IBM Plex Sans", Arial, sans-serif;
+  --ai-display: "IBM Plex Sans", Arial, sans-serif;
+  --ai-radius: 8px;
+  --ai-radius-lg: 12px;
+  --ai-radius-sm: 6px;
+  --ai-shadow: 0 6px 24px rgba(19, 48, 60, 0.08);
+  --ai-shadow-lg: 0 14px 40px rgba(19, 48, 60, 0.14);
+  --ai-border: #e1e3e5;
+  --ai-muted: #666666;
+  --ai-bg-2: #e1e3e5;
+  --ai-surface: #ffffff;
+  --ai-accent-hover: #d00421;
+  background: #fff;
+  color: var(--ai-text);
+  font-family: var(--ai-font);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.ai-design-harbor .ai-cta__title,
+body.ai-design-harbor .ai-cta__desc {
+  color: #fff;
+}
+
+body.ai-design-harbor h1,
+body.ai-design-harbor h2,
+body.ai-design-harbor h3,
+body.ai-design-harbor .ai-section__title,
+body.ai-design-harbor .ai-hero__content h1,
+body.ai-design-harbor .ai-logo {
+  font-family: var(--ai-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ai-primary);
+}
+
+/* Header ? dark teal like Japan Life */
+body.ai-design-harbor .ai-header {
+  background: var(--ai-primary);
+  border-bottom: none;
+  box-shadow: 0 2px 12px rgba(19, 48, 60, 0.25);
+}
+
+body.ai-design-harbor .ai-header a,
+body.ai-design-harbor .ai-nav__link,
+body.ai-design-harbor .ai-logo {
+  color: #fff;
+}
+
+body.ai-design-harbor .ai-nav__link {
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+body.ai-design-harbor .ai-nav__link:hover,
+body.ai-design-harbor .ai-nav__link.is-active {
+  color: var(--ai-accent);
+}
+
+/* Red CTA ? ????????? ??????? style */
+body.ai-design-harbor .ai-btn,
+body.ai-design-harbor .ai-btn--primary {
+  border-radius: 6px;
+  background: var(--ai-accent);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(255, 0, 37, 0.25);
+}
+
+body.ai-design-harbor .ai-btn:hover,
+body.ai-design-harbor .ai-btn--primary:hover {
+  background: var(--ai-accent-hover);
+  color: #fff;
+}
+
+body.ai-design-harbor .ai-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  box-shadow: none;
+}
+
+body.ai-design-harbor .ai-section {
+  padding-block: clamp(2.75rem, 5.5vw, 4.5rem);
+  background: #fff;
+}
+
+body.ai-design-harbor .ai-block:nth-child(even) > .ai-section,
+body.ai-design-harbor .ai-section.ai-section--alt {
+  background: var(--ai-bg);
+}
+
+body.ai-design-harbor .ai-section__label {
+  display: inline-block;
+  color: var(--ai-accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  background: none;
+  padding: 0;
+}
+
+body.ai-design-harbor .ai-section__header {
+  text-align: left;
+  max-width: 44rem;
+  margin: 0 0 2rem;
+}
+
+body.ai-design-harbor .ai-section__title {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 700;
+}
+
+body.ai-design-harbor .ai-section__desc {
+  color: var(--ai-muted);
+  font-size: 1.0625rem;
+}
+
+/* Hero ? transparent price promise, big stats strip */
+body.ai-design-harbor .ai-hero {
+  min-height: clamp(500px, 75vh, 720px);
+}
+
+body.ai-design-harbor .ai-hero__overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(19, 48, 60, 0.92) 0%,
+    rgba(19, 48, 60, 0.75) 48%,
+    rgba(19, 48, 60, 0.4) 100%
+  );
+}
+
+body.ai-design-harbor .ai-hero__content {
+  color: #fff;
+}
+
+body.ai-design-harbor .ai-hero__content h1 {
+  max-width: 16ch;
+  color: #fff;
+  font-size: clamp(1.85rem, 4.5vw, 3rem);
+  font-weight: 700;
+}
+
+body.ai-design-harbor .ai-hero__flag {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+body.ai-design-harbor .ai-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.ai-design-harbor .ai-hero__stat-value {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+body.ai-design-harbor .ai-hero__stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8125rem;
+}
+
+/* Trust / advantage cards ? light grey panel like jplife ?????????? ? ?????????? */
+body.ai-design-harbor .ai-adv-card,
+body.ai-design-harbor .ai-card-item,
+body.ai-design-harbor .ai-step,
+body.ai-design-harbor .ai-faq-item {
+  background: #fff;
+  border: 1px solid var(--ai-border);
+  border-radius: var(--ai-radius);
+  box-shadow: none;
+  padding: 1.5rem 1.35rem;
+}
+
+body.ai-design-harbor .ai-adv-card__title,
+body.ai-design-harbor .ai-step__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ai-primary);
+}
+
+body.ai-design-harbor .ai-adv-card__text {
+  color: var(--ai-muted);
+}
+
+/* Catalog cards ? clean white, red price */
+body.ai-design-harbor .ai-car-card {
+  background: #fff;
+  border: 1px solid var(--ai-border);
+  border-radius: var(--ai-radius);
+  box-shadow: var(--ai-shadow);
+  overflow: hidden;
+}
+
+body.ai-design-harbor .ai-car-card__price-value {
+  color: var(--ai-accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+body.ai-design-harbor .ai-about-image {
+  border-radius: var(--ai-radius) !important;
+  box-shadow: var(--ai-shadow) !important;
+}
+
+body.ai-design-harbor .ai-cta {
+  border-radius: var(--ai-radius);
+  border: none;
+}
+
+body.ai-design-harbor .ai-footer {
+  background: var(--ai-primary);
+  color: #fff;
+  border-top: none;
+}
+
+body.ai-design-harbor .ai-footer a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+body.ai-design-harbor .ai-filter-btn {
+  border-radius: 6px;
+  border: 1px solid var(--ai-border);
+  background: #fff;
+  color: #1c1c1c;
+  font-weight: 500;
+}
+
+body.ai-design-harbor .ai-filter-btn.is-active {
+  background: var(--ai-primary);
+  border-color: var(--ai-primary);
+  color: #fff;
+}
+
+body.ai-design-harbor .ai-badge {
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Steps as numbered process like jplife ?????? ??????? */
+body.ai-design-harbor .ai-step {
+  position: relative;
+  padding-top: 1.75rem;
+}
+
+body.ai-design-harbor .ai-block--steps .ai-step {
+  border-top: 3px solid var(--ai-accent);
+}
+
+/* Block variations */
+body.ai-design-harbor .ai-block-style-v1 .ai-section__header {
+  border-left: 3px solid var(--ai-accent);
+  padding-left: 1rem;
+}
+
+body.ai-design-harbor .ai-block-style-v2 .ai-adv-card,
+body.ai-design-harbor .ai-block-style-v2 .ai-step {
+  background: var(--ai-bg);
+  border: none;
+}
+
+body.ai-design-harbor .ai-block-style-v3 .ai-section__header {
+  background: var(--ai-primary);
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--ai-radius);
+  max-width: none;
+}
+
+body.ai-design-harbor .ai-block-style-v3 .ai-section__title,
+body.ai-design-harbor .ai-block-style-v3 .ai-section__label,
+body.ai-design-harbor .ai-block-style-v3 .ai-section__desc {
+  color: #fff;
+}
+
+body.ai-design-harbor .ai-block-style-v4 .ai-section {
+  padding-block: 2rem;
+}
+
+body.ai-design-harbor .ai-block-style-v4 .ai-car-card,
+body.ai-design-harbor .ai-block-style-v4 .ai-adv-card {
+  box-shadow: none;
+}
+
+body.ai-design-harbor .ai-block--hero.ai-block-style-v2 .ai-hero__overlay {
+  background: linear-gradient(90deg, rgba(19, 48, 60, 0.95), rgba(19, 48, 60, 0.55));
+}
+
+body.ai-design-harbor .ai-block--hero.ai-block-style-v3 .ai-btn--primary {
+  min-width: 240px;
+}
+
+body.ai-design-harbor .ai-block--hero.ai-block-style-v4 .ai-hero {
+  min-height: 440px;
+}
+
+/* Soft telegram-blue for links in content (jplife uses #2aabee for social) */
+body.ai-design-harbor .ai-page-content a,
+body.ai-design-harbor .ai-footer .ai-social a:hover {
+  color: #2aabee;
+}
+
+/* Structural clone extras ? jplife-like catalog-first */
+body.ai-design-harbor .ai-topbar{background:#0e2430;color:#c9d4d8;border:0}
+body.ai-design-harbor .ai-topbar__office strong{color:#fff}
+body.ai-design-harbor .ai-catalog-filtered .ai-section__header{text-align:left;max-width:none}
+body.ai-design-harbor .ai-adv-filters{background:#fff;border-color:#e1e3e5;box-shadow:var(--ai-shadow)}
+body.ai-design-harbor .ai-hero__flags{display:none}
+body.ai-design-harbor .ai-block--catalog_filtered{background:#f5f6f7}
+body.ai-design-harbor .ai-float-cta__btn--phone{background:#FF0025}
+body.ai-design-harbor .ai-header__phone{color:#fff!important}
