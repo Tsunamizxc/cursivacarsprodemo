@@ -1261,6 +1261,33 @@ body.ai-grain::before {
   border: 1px solid var(--ai-border);
   border-radius: var(--ai-radius);
   transition: transform var(--ai-transition), box-shadow var(--ai-transition);
+  box-sizing: border-box;
+}
+
+/* JS-enhanced slider: one card per view, transform-based */
+.ai-reviews--slider {
+  overflow: hidden;
+}
+
+.ai-reviews--slider .ai-reviews__track {
+  gap: 0;
+  overflow: visible;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  padding-bottom: 0;
+  touch-action: pan-y;
+}
+
+.ai-reviews--slider .ai-review-card {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  scroll-snap-align: none;
+}
+
+.ai-reviews--slider .ai-review-card:hover {
+  transform: none;
 }
 
 .ai-review-card:hover {
@@ -1953,14 +1980,16 @@ body.ai-modal-open {
   position: relative;
   z-index: 1;
   width: min(480px, 100%);
-  max-height: min(90vh, 720px);
-  overflow: auto;
+  max-height: min(94vh, 875px);
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--ai-surface, #fff);
   border-radius: 20px;
   padding: 1.75rem 1.5rem 1.5rem;
   box-shadow: 0 30px 80px rgba(0,0,0,.28);
   transform: translateY(12px);
   transition: transform .25s ease;
+  -webkit-overflow-scrolling: touch;
 }
 
 .ai-modal.is-open .ai-modal__dialog {
@@ -2275,7 +2304,8 @@ body.ai-modal-open {
 
   .ai-modal__dialog {
     width: calc(100% - 1.5rem);
-    max-height: calc(100vh - 2rem);
+    max-height: min(94vh, 875px);
+    overflow-x: hidden;
     overflow-y: auto;
   }
 

@@ -1227,6 +1227,12 @@ body.ai-ve-open {
   grid-template-columns: none;
 }
 
+.ai-block--reviews.ai-block-style-v2 .ai-reviews--slider .ai-reviews__track {
+  gap: 0;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
 @media (min-width: 768px) {
   .ai-block--reviews.ai-block-style-v2 .ai-reviews__track {
     grid-template-columns: none;
@@ -1244,6 +1250,12 @@ body.ai-ve-open {
   width: auto;
   border-radius: var(--ai-radius-lg);
   border-width: 2px;
+}
+
+.ai-block--reviews.ai-block-style-v2 .ai-reviews--slider .ai-review-card {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 .ai-block--reviews.ai-block-style-v2 .ai-reviews__nav {

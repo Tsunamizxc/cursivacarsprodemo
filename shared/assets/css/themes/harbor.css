@@ -85,9 +85,29 @@ body.ai-design-harbor .ai-btn--primary:hover {
 
 body.ai-design-harbor .ai-btn--ghost {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  color: #fff;
+  border: 1px solid var(--ai-primary, #0B1F33);
+  color: var(--ai-primary, #0B1F33);
   box-shadow: none;
+}
+
+body.ai-design-harbor .ai-btn--ghost:hover {
+  background: transparent;
+  border-color: var(--ai-accent);
+  color: var(--ai-accent);
+}
+
+/* Ghost on dark surfaces (hero / fav bar) stays light */
+body.ai-design-harbor .ai-hero .ai-btn--ghost,
+body.ai-design-harbor .ai-fav-bar .ai-btn--ghost {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+body.ai-design-harbor .ai-hero .ai-btn--ghost:hover,
+body.ai-design-harbor .ai-fav-bar .ai-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  color: #fff;
 }
 
 body.ai-design-harbor .ai-section {

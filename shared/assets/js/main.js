@@ -583,33 +583,44 @@
 
       var index = 0;
       var timer = null;
+      var touchX = null;
 
-      function cardStep() {
-        var style = window.getComputedStyle(track);
-        var g = parseFloat(style.columnGap || style.gap) || 20;
-        return cards[0].offsetWidth + g;
+      root.classList.add('ai-reviews--slider');
+      track.style.display = 'flex';
+      track.style.gap = track.style.gap || '';
+      track.style.overflow = 'visible';
+      track.style.scrollSnapType = 'none';
+      track.style.gridTemplateColumns = 'none';
+      track.style.willChange = 'transform';
+      track.style.transition = 'transform 0.45s ease';
+
+      cards.forEach(function (card) {
+        card.style.flex = '0 0 100%';
+        card.style.maxWidth = '100%';
+        card.style.minWidth = '0';
+        card.style.scrollSnapAlign = 'none';
+      });
+
+      function step() {
+        var w = root.clientWidth || track.clientWidth || cards[0].offsetWidth || 1;
+        return Math.max(1, w);
       }
 
-      function goTo(i, smooth) {
+      function goTo(i, animate) {
         index = ((i % cards.length) + cards.length) % cards.length;
-        var left = cards[index].offsetLeft - track.offsetLeft;
-        if (typeof track.scrollTo === 'function') {
-          track.scrollTo({ left: left, behavior: smooth === false ? 'auto' : 'smooth' });
+        if (animate === false) {
+          track.style.transition = 'none';
         } else {
-          track.scrollLeft = left;
+          track.style.transition = 'transform 0.45s ease';
         }
+        track.style.transform = 'translate3d(' + (-index * step()) + 'px,0,0)';
         dots.forEach(function (dot, di) {
           dot.classList.toggle('is-active', di === index);
         });
-      }
-
-      function updateFromScroll() {
-        var step = cardStep() || 1;
-        index = Math.round(track.scrollLeft / step);
-        index = Math.max(0, Math.min(cards.length - 1, index));
-        dots.forEach(function (dot, di) {
-          dot.classList.toggle('is-active', di === index);
-        });
+        if (animate === false) {
+          void track.offsetWidth;
+          track.style.transition = 'transform 0.45s ease';
+        }
       }
 
       function startAuto() {
@@ -633,16 +644,32 @@
         });
       });
 
-      on(track, 'scroll', updateFromScroll, { passive: true });
       on(root, 'mouseenter', stopAuto);
       on(root, 'mouseleave', startAuto);
       on(root, 'focusin', stopAuto);
       on(root, 'focusout', startAuto);
 
-      track.style.display = 'flex';
-      track.style.overflowX = 'auto';
-      track.style.scrollSnapType = 'x mandatory';
-      track.style.gridTemplateColumns = 'none';
+      on(track, 'touchstart', function (e) {
+        if (!e.touches || !e.touches.length) return;
+        touchX = e.touches[0].clientX;
+        stopAuto();
+      }, { passive: true });
+
+      on(track, 'touchend', function (e) {
+        if (touchX == null || !e.changedTouches || !e.changedTouches.length) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) < 40) {
+          startAuto();
+          return;
+        }
+        goTo(index + (dx < 0 ? 1 : -1));
+        startAuto();
+      }, { passive: true });
+
+      on(window, 'resize', function () {
+        goTo(index, false);
+      });
 
       goTo(0, false);
       startAuto();
